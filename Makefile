@@ -6,7 +6,7 @@ BASEDIR ?= $(shell dirname "$(realpath $(lastword $(MAKEFILE_LIST)))")
 SRCDIR ?= $(BASEDIR)/src
 
 APPNAME ?= pybase
-APPVER ?= 1.0
+APPVER ?= 3.8
 
 PY := PYTHONPATH="$(SRCDIR)" python3
 
