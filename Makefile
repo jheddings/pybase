@@ -30,6 +30,9 @@ rebuild: test
 ################################################################################
 .PHONY: release
 
+# XXX do we need this section (or even a Makefile?) ...  could we just use the
+# CI/CD hooks available on Docker Hub instead?
+
 release: build
 	docker image tag "$(APPNAME):dev" "$(APPNAME):latest"
 	docker image tag "$(APPNAME):latest" "$(APPNAME):$(APPVER)"
