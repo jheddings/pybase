@@ -53,10 +53,16 @@ test:
 
 run:
 	docker container run --rm --interactive --tty \
-		--volume "$$HOME":"/mnt/host/home" \
-		--volume "/":"/mnt/host/files" \
-		--volume "$(PWD)":"/mnt/host/pwd" \
-		"$(APPNAME):dev"
+		--volume "$$HOME":"/mnt/host/home" "$(APPNAME):dev"
+
+################################################################################
+.PHONY: hello
+
+# demonstrate and test executing a local python script in pybase
+
+hello:
+	docker container run --rm --volume "$(PWD)":"/mnt/host/pwd" \
+		"$(APPNAME):dev" "/mnt/host/pwd/hello.py"
 
 ################################################################################
 .PHONY: clean
